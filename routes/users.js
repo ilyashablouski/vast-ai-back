@@ -7,17 +7,18 @@ const router = express.Router();
 const csvWriter = createObjectCsvWriter({
     path: './data/users.csv',
     header: [
-        { id: 'name', title: 'Name' },
         { id: 'email', title: 'Email' },
+        { id: 'password', title: 'Password' },
+        { id: 'phone', title: 'Phone' },
     ],
     append: true,
 });
 
 router.post('/save-user', async (req, res) => {
-    const { name, email } = req.body;
+    const {  email, password, phone } = req.body;
 
     try {
-        await csvWriter.writeRecords([{ name, email }]);
+        await csvWriter.writeRecords([{ email, password, phone }]);
         res.setHeader('Content-Disposition', 'attachment; filename=users.csv');
         res.setHeader('Content-Type', 'text/csv');
         fs.createReadStream('./data/users.csv').pipe(res);
