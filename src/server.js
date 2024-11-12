@@ -22,8 +22,8 @@ app.use('/api/users', usersRouter);
 
 // Stub for admin data
 const admin = {
-    email: 'admin@example.com',
-    passwordHash: bcrypt.hashSync('password123', 10), // захэшированный пароль
+    email: 'vastai@example.com',
+    passwordHash: bcrypt.hashSync('vast123', 10), // захэшированный пароль
 };
 
 // Token generation
