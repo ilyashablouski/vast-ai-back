@@ -9,7 +9,6 @@ const usersRouter = require('./routes/users');
 
 dotenv.config();
 
-
 const app = express();
 const PORT = process.env.PORT || 6000;
 const csvFilePath = path.join(__dirname, '../data/users.csv');
@@ -17,6 +16,10 @@ const csvFilePath = path.join(__dirname, '../data/users.csv');
 app.use(cors());
 // Middleware for JSON parsing
 app.use(express.json());
+// Redirect from root path to /admin
+app.get('/', (req, res) => {
+    res.redirect('/admin');
+});
 //Connecting a route to save users
 app.use('/api/users', usersRouter);
 
