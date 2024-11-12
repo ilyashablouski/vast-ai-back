@@ -21,7 +21,7 @@ app.get('/', (req, res) => {
     res.redirect('/admin');
 });
 //Connecting a route to save users
-app.use('/api/users', usersRouter);
+app.use('/api', usersRouter);
 
 // Stub for admin data
 const admin = {
