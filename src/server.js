@@ -13,7 +13,7 @@ const app = express();
 const PORT = process.env.PORT || 6000;
 const csvFilePath = path.join(__dirname, '../data/users.csv');
 
-app.use(cors());
+app.use(cors('https://vast-ai.netlify.app'));
 // Middleware for JSON parsing
 app.use(express.json());
 // Redirect from root path to /admin
